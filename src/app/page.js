@@ -135,7 +135,7 @@ const Home = () => {
                 />
               </div>
               <button className="rounded-full flex items-center justify-items-center p-2 border-2 mr-3">
-                {loading ? <Music color="white" /> : <Loader color="white" className="animate-spin" />}
+                {!loading ? <Music color="white" /> : <Loader color="white" className="animate-spin" />}
               </button>
             </div>
           </div>
