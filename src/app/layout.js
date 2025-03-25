@@ -13,8 +13,8 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "pIAno",
-  description: "Modern Piano Progression",
+  title: "Piano Next",
+  description: "Modern Piano Progression Generator",
 };
 
 export default function RootLayout({ children }) {

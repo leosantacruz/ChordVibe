@@ -4,7 +4,8 @@ const Nav = () => {
     <nav className="fixed z-50 w-full text-white top-0 ">
       <div className="flex gap-10 p-4 backdrop-blur-md">
         <div>
-          <strong>pIAno</strong>
+          {/* I still don't know the name! */}
+          <strong>Piano Next</strong>
         </div>
 
         <Link href="/">Play</Link>

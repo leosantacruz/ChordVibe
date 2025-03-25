@@ -1,4 +1,4 @@
-PIAno
+Piano Next
 Created by Leonardo Santa Cruz
 
 ### Getting Started
