@@ -1,7 +1,7 @@
 PIAno
 Created by Leonardo Santa Cruz
 
-## Getting Started
+### Getting Started
 
 First, run the development server:
 
