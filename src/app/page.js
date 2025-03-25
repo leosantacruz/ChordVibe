@@ -1,101 +1,148 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useChordStore } from "./store/chordStore";
+import { useGenerateChords } from "./hooks/useGenerateChords";
+import Piano from "./components/Piano";
+import Nav from "./components/Nav";
+import { Music, Loader } from 'lucide-react';
+
+const flatToSharp = (note) => {
+  const map = {
+    'Db': 'C#', 'Eb': 'D#', 'Gb': 'F#', 'Ab': 'G#', 'Bb': 'A#'
+  };
+  return note.replace(/([A-G])b/, (_, base) => map[`${base}b`] || note);
+};
+
+const normalizeNotes = (notes) => {
+  return notes.map(n => {
+    const note = n.slice(0, -1);
+    const octave = n.slice(-1);
+    return flatToSharp(note) + octave;
+  });
+};
+
+const Home = () => {
+  const { selectedProgression } = useChordStore();
+  const { fetchChords, loading } = useGenerateChords();
+  const router = useRouter();
+
+  const [index, setIndex] = useState(0);
+  const [chords, setChords] = useState(selectedProgression);
+  const [input, setInput] = useState("");
+  const [showBackground, setShowBackground] = useState(false);
+
+  const [isFocused, setIsFocused] = useState(false);
+
+  const next = () => setIndex((prev) => (prev + 1) % chords.progression.length);
+  const prev = () => setIndex((prev) => (prev - 1 + chords.progression.length) % chords.progression.length);
+
+  const handleInputEnter = (e) => {
+    if (e.key === "Enter") {
+      fetchChords(input, (newChords) => {
+        console.log({ newChords });
+        setChords(newChords);
+        setIndex(0);
+      });
+    }
+  };
+
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "Escape") router.push("/collection");
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [chords, router]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowBackground(true), 400);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="bg-black">
+      {showBackground && (
+        <div className="animate-fade-in">
+          <Nav />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div
+            className="fixed inset-0 z-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(/images/collection/${chords.thumbnail})`,
+            }}
+          ></div>
+
+          <div className="fixed inset-0 z-10 bg-gradient-to-b to-sky-500 from-black opacity-50 pointer-events-none"></div>
+
+          <div className="relative z-20 p-4 pt-14 min-h-screen text-center">
+            <h1 className="text-4xl mt-10 mb-8 font-bold text-white">
+              {chords.title}
+            </h1>
+
+            {chords.progression && (
+              <>
+                <div className="flex justify-center gap-2 flex-wrap mb-6">
+                  {chords.progression.map((chord, i) => (
+                    <button
+                      onClick={() => setIndex(i)}
+                      key={i}
+                      className={`px-3 py-1 rounded-full text-sm font-medium border-2 ${i === index
+                        ? "bg-blue-600 text-white border-blue-500"
+                        : "bg-white text-gray-700 border-gray-300"
+                        }`}
+                    >
+                      {chord.name}
+                    </button>
+                  ))}
+                </div>
+
+                <Piano
+                  highlightedKeys={normalizeNotes(chords.progression[index].notes)}
+                  scale={chords.scale}
+                />
+              </>
+            )}
+
+            {isFocused && (
+              <div
+                className="fixed inset-0 bg-black opacity-70 z-40"
+                onClick={() => setIsFocused(false)}
+              ></div>
+            )}
+
+            <div
+              className={`
+                absolute bottom-20 left-0 right-0 flex justify-center items-center
+                mx-auto max-w-[400px] rounded-3xl bg-white bg-opacity-40 backdrop-blur-lg
+                transition-transform duration-300
+                ${isFocused ? "z-50 scale-125" : "z-10 scale-100"}
+              `}
+            >
+              <div className="w-full border-2 rounded-3xl m-2 p-2 bg-white">
+                <input
+                  type="text"
+                  placeholder="Genera una progresión"
+                  value={input}
+                  onInput={(e) => setInput(e.target.value)}
+                  onKeyDown={handleInputEnter}
+                  onFocus={() => setIsFocused(true)}
+                  onBlur={() => setIsFocused(false)}
+                  className="h-auto w-full bg-transparent text-center text-sm font-medium text-gray-700 focus:outline-none"
+                />
+              </div>
+              <button className="rounded-full flex items-center justify-items-center p-2 border-2 mr-3">
+                {loading ? <Music color="white" /> : <Loader color="white" className="animate-spin" />}
+              </button>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      )}
     </div>
   );
-}
+};
+
+export default Home;
