@@ -1,4 +1,5 @@
-import GoogleAnalyticsClient from "./components/GoogleAnalyticsClient"
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -75,13 +76,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <GoogleAnalyticsClient></GoogleAnalyticsClient>
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GTAG} />
       </body>
     </html>
   );
