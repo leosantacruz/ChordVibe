@@ -46,7 +46,7 @@ export const metadata = {
     siteName: "ChordVibe",
     images: [
       {
-        url: "https://www.chordvibe.vercel.app/images/logo.webp",
+        url: "https://www.chordvibe.vercel.app/images/banner.jpg",
         width: 1200,
         height: 630,
         alt: "ChordVibe Logo - Interactive Piano Progression Generator",
@@ -62,7 +62,7 @@ export const metadata = {
     title: "ChordVibe - Modern Piano Progression Generator",
     description:
       "Play chord progressions from your favorite artists on an interactive piano with ChordVibe! 🎶 Perfect for young musicians to learn and create.",
-    images: ["https://www.chordvibe.vercel.app/images/logo.webp"],
+    images: ["images/banner.jpg"],
     creator: "@eltuiterdeleo",
   },
 
