@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { list } from "../data/collection";
+import { list } from "../data/basic";
 import { useChordStore } from "../store/chordStore";
 import { useRouter } from "next/navigation";
 import Nav from "../components/Nav";
@@ -99,6 +99,7 @@ const Collection = () => {
                 onClick={() => {
                   selectProgression(index);
                 }}
+                onMouseEnter={() => setActiveIndex(index)}
                 key={"progression" + index}
                 className={`overflow-hidden rounded-lg transition duration-300 bg-card focus:outline-none ${
                   isActive

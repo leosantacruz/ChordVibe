@@ -32,8 +32,6 @@ const buildKeys = () => {
 const keys = buildKeys();
 
 const Piano = ({ highlightedKeys = [], scale = [] }) => {
-  const scaleBaseNotes = scale.map((note) => note.replace(/[0-9]/g, ""));
-
   return (
     <div className="overflow-x-auto">
       <div className="relative h-40 inline-block">
@@ -49,7 +47,7 @@ const Piano = ({ highlightedKeys = [], scale = [] }) => {
                 }`}
                 title={k.note}
               >
-                {scaleBaseNotes.includes(k.note.replace(/[0-9]/g, "")) && (
+                {scale.includes(k.note.replace(/[0-9]/g, "")) && (
                   <div className="w-2 h-2 bg-red-400 rounded-full absolute bottom-2 left-1/2 transform -translate-x-1/2 z-20" />
                 )}
               </div>
@@ -70,7 +68,7 @@ const Piano = ({ highlightedKeys = [], scale = [] }) => {
                 style={{ left: `${offset * 40 - 12}px` }}
                 title={k.note}
               >
-                {scaleBaseNotes.includes(k.note.replace(/[0-9]/g, "")) && (
+                {scale.includes(k.note.replace(/[0-9]/g, "")) && (
                   <div className="w-2 h-2 bg-red-400 rounded-full absolute bottom-2 left-1/2 transform -translate-x-1/2 z-20" />
                 )}
               </div>

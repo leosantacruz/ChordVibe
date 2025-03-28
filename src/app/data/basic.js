@@ -37,8 +37,35 @@ export const list = [
             }
         ],
         "description": "Float through the cosmos with this dreamy progression. Perfect for late-night vibes and stargazing feels. Let the stellar spirit guide your ears!",
-        "scale": ["G2", "A2", "Cb2", "C3", "D3", "Eb3", "F3"]
+        "scale": ["G", "C#", "Cb", "C", "D", "Eb", "F"]
+    },
+    {
+        "title": "Lana del Rey",
+        "thumbnail": "lana.webp",
+        "progression": [
+            { "name": "Am(add9)", "notes": ["A2", "C3", "E3", "B3"] },
+            { "name": "Fmaj7", "notes": ["F2", "A2", "C3", "E3"] },
+            { "name": "Dm(add11)", "notes": ["D2", "F2", "G2", "A2", "C3"] },
+            { "name": "E7", "notes": ["E2", "G#2", "B2", "D3"] }
+        ],
+        "description": "Dreamy, cinematic, and melancholic — this Lana Del Rey-inspired progression flows with romantic decay.",
+        "scale": ["A", "B", "C", "D", "E", "F", "G", "G#"]
+    },
 
+    {
+        "title": "The Beatles",
+        "thumbnail": "beatles.webp",
+        "progression": [
+            { "name": "C", "notes": ["C3", "E3", "G3"] },
+            { "name": "E7", "notes": ["E2", "G#2", "B2", "D3"] },
+            { "name": "Am", "notes": ["A2", "C3", "E3"] },
+            { "name": "F", "notes": ["F2", "A2", "C3"] },
+            { "name": "D7", "notes": ["D2", "F#2", "A2", "C3"] },
+            { "name": "G", "notes": ["G2", "B2", "D3"] },
+            { "name": "C", "notes": ["C3", "E3", "G3"] }
+        ],
+        "description": "A classic Beatles-inspired sequence, blending clever modulations (E7 and D7) with a warm pop feel.",
+        "scale": ["C", "D", "E", "F", "F#", "G", "G#", "A", "B"]
     },
     {
         "title": "Fantastic Romance",
@@ -77,7 +104,23 @@ export const list = [
                 "notes": ["D3", "F#3", "A3", "C#4"]
             }
         ],
-        "description": "Dive into a world of fantasy with this enchanting chord progression. Feel the magic in the air and let your imagination soar with this romantic soundscape."
+        "description": "Dive into a world of fantasy with this enchanting chord progression. Feel the magic in the air and let your imagination soar with this romantic soundscape.",
+        "scale": ["E", "F#", "G", "A", "B", "C", "D", "D#", "C#"]
+    },
+    {
+        "title": "Queen",
+        "thumbnail": "queen.webp",
+        "progression": [
+            { "name": "F", "notes": ["F2", "A2", "C3"] },
+            { "name": "A7", "notes": ["A2", "C#3", "E3", "G3"] },
+            { "name": "Dm", "notes": ["D2", "F2", "A2"] },
+            { "name": "Bb", "notes": ["Bb2", "D3", "F3"] },
+            { "name": "Gm", "notes": ["G2", "Bb2", "D3"] },
+            { "name": "C7", "notes": ["C2", "E2", "G2", "Bb2"] },
+            { "name": "F", "notes": ["F2", "A2", "C3"] }
+        ],
+        "description": "Majestic, theatrical and dramatic — this Queen-inspired progression delivers grandeur and surprise.",
+        "scale": ["F", "G", "A", "Bb", "C", "D", "E", "C#"]
     },
     {
         "title": "Nostalgic Mist",
@@ -116,7 +159,8 @@ export const list = [
                 "notes": ["C3", "E3", "G3", "D4"]
             }
         ],
-        "description": "Wrap yourself in the warmth of memories with this nostalgic progression. Perfect for those chill moments when you're feeling a bit reflective. Get lost in the mist of sound."
+        "description": "Wrap yourself in the warmth of memories with this nostalgic progression. Perfect for those chill moments when you're feeling a bit reflective. Get lost in the mist of sound.",
+        "scale": ["D", "E", "F", "G", "A", "Bb", "C", "C#", "B"]
     },
     {
         "title": "Cosmic Lounge",
@@ -151,7 +195,8 @@ export const list = [
                 "notes": ["G2", "B2", "D3", "F#3", "A3"]
             }
         ],
-        "description": "Chill out with this smooth cosmic lounge progression. Perfect for kicking back, sipping something cool, and letting the universe's chill vibes wash over you. Tune in and zone out."
+        "description": "Chill out with this smooth cosmic lounge progression. Perfect for kicking back, sipping something cool, and letting the universe's chill vibes wash over you. Tune in and zone out.",
+        "scale": ["G", "A", "B", "C", "D", "E", "F#", "F", "C#", "Bb"]
     },
     {
         "title": "Radiant Smile",
@@ -190,7 +235,8 @@ export const list = [
                 "notes": ["C3", "E3", "G3", "D4"]
             }
         ],
-        "description": "Let the sunshine in with this bright and cheerful progression. It's like a musical hug that'll instantly boost your mood. Get ready to smile from ear to ear!"
+        "description": "Let the sunshine in with this bright and cheerful progression. It's like a musical hug that'll instantly boost your mood. Get ready to smile from ear to ear!",
+        "scale": ["C", "D", "E", "F", "G", "A", "B"]
     },
     {
         "title": "Pop Galaxy",
@@ -229,7 +275,8 @@ export const list = [
                 "notes": ["C2", "E2", "G2", "B2"]
             }
         ],
-        "description": "Blast off with this catchy pop progression from another galaxy! Perfect for your next hit or just vibing out. Get ready for an interstellar musical journey."
+        "description": "Blast off with this catchy pop progression from another galaxy! Perfect for your next hit or just vibing out. Get ready for an interstellar musical journey.",
+        "scale": ["G", "A", "B", "C", "D", "E", "F#"]
     },
     {
         "title": "Youth Concert",
@@ -264,7 +311,8 @@ export const list = [
                 "notes": ["E3", "F#3", "G#3", "B3"]
             }
         ],
-        "description": "Feel the energy with this vibrant and youthful concert progression. Perfect for that live music feel, bringing the hype and good vibes straight to your ears. Let's rock!"
+        "description": "Feel the energy with this vibrant and youthful concert progression. Perfect for that live music feel, bringing the hype and good vibes straight to your ears. Let's rock!",
+        "scale": ["E", "F#", "G#", "A", "B", "C#", "D#"]
     },
     {
         "title": "Eclectic Fusion",
@@ -299,7 +347,8 @@ export const list = [
                 "notes": ["F2", "Ab2", "C3", "Eb3", "G3"]
             }
         ],
-        "description": "Experience a sonic melting pot with this eclectic fusion progression. A mix of flavors that will surprise and delight your ears. Get ready for a unique musical adventure!"
+        "description": "Experience a sonic melting pot with this eclectic fusion progression. A mix of flavors that will surprise and delight your ears. Get ready for a unique musical adventure!",
+        "scale": ["F", "G", "Ab", "Bb", "C", "Db", "D", "Eb", "E"]
     },
     {
         "title": "Urban Fantasy",
@@ -334,7 +383,8 @@ export const list = [
                 "notes": ["E2", "G2", "B2", "F#3"]
             }
         ],
-        "description": "Step into a world where the mystical meets the modern with this urban fantasy progression. Cool vibes for city nights and daydreaming about magic. Feel the urban enchantment!"
+        "description": "Step into a world where the mystical meets the modern with this urban fantasy progression. Cool vibes for city nights and daydreaming about magic. Feel the urban enchantment!",
+        "scale": ["E", "F#", "G", "A", "B", "C", "D", "C#", "D#"]
     },
     {
         "title": "Orchestral Ecstasy",
@@ -373,6 +423,7 @@ export const list = [
                 "notes": ["A2", "C3", "E3", "B3"]
             }
         ],
-        "description": "Experience the grandeur with this orchestral ecstasy progression. Big, emotional, and epic, it's perfect for when you want your music to feel larger than life. Prepare for sonic bliss!"
+        "description": "Experience the grandeur with this orchestral ecstasy progression. Big, emotional, and epic, it's perfect for when you want your music to feel larger than life. Prepare for sonic bliss!",
+        "scale": ["A", "B", "C", "D", "E", "F", "G", "G#", "F#", "Bb", "Ab"]
     },
 ]

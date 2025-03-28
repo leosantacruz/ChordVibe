@@ -125,7 +125,7 @@ const Home = () => {
               <div className="w-full border-2 rounded-3xl m-2 p-2 bg-white">
                 <input
                   type="text"
-                  placeholder="Genera una progresión"
+                  placeholder="Generate your progression"
                   value={input}
                   onInput={(e) => setInput(e.target.value)}
                   onKeyDown={handleInputEnter}
