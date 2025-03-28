@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "nextjs-google-analytics"; // Importa el componente
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -74,6 +75,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GTAG} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
