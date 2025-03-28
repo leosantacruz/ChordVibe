@@ -3,7 +3,7 @@
 
 Created by Leonardo Santa Cruz  
 
-Welcome to **ChordVibe**, the ultimate app for young music lovers and aspiring pianists! Dive into a world of chord progressions inspired by your favorite artists, like Olivia Rodrigo, and bring them to life on an interactive piano. Whether you're learning, jamming, or creating your next hit, ChordVibe makes music exploration fun, fast, and totally vibin'. 🎶  
+Hey there, welcome to ChordVibe—the app every young music lover needs! Play around with chord progressions inspired by your favorite songs, and bring them to life on an interactive piano. Whether you’re just starting out, jamming for fun, or working on your next big track, ChordVibe makes exploring music super easy and way too much fun. Let’s make some tunes! 
 
 ## ✨ What Makes ChordVibe Awesome?  
 - **Explore Artist Progressions:** Choose from a curated collection of chord progressions by top artists.  
@@ -17,7 +17,7 @@ Ready to vibe with your piano? Let’s get you set up in a few simple steps:
 
 1. **Clone the repo:**  
 ```bash
-git clone https://github.com/your-username/chordvibe.git
+git clone https://github.com/leosantacruz/ChordVibe.git
    ```
 2. **Install dependencies:**
 
