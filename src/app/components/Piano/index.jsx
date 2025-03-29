@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { playChord } from "../../lib/sound";
+
 const noteOrder = [
   "C",
   "C#",
@@ -31,7 +34,13 @@ const buildKeys = () => {
 
 const keys = buildKeys();
 
-const Piano = ({ highlightedKeys = [], scale = [] }) => {
+const Piano = ({ highlightedKeys = [], scale = [], isMuted }) => {
+  useEffect(() => {
+    if (highlightedKeys.length && !isMuted) {
+      playChord(highlightedKeys);
+    }
+  }, [highlightedKeys, isMuted]);
+
   return (
     <div className="overflow-x-auto">
       <div className="relative h-40 inline-block">
