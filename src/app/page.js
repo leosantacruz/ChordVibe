@@ -101,7 +101,7 @@ const Home = () => {
 
           <div className="relative z-20 min-h-screen text-center">
             <div className="relative z-20">
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6 pt-20">
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-3 pt-20">
                 <button
                   onClick={() => setIsMuted((prev) => !prev)}
                   className="flex items-center gap-2 px-4 py-2 bg-white backdrop-blur-sm bg-opacity-20 text-white rounded-full shadow transition h-8"
@@ -121,8 +121,8 @@ const Home = () => {
                   {["Slow", "Normal", "Fast"].map((label) => {
                     const bpmMap = {
                       Slow: 20,
-                      Normal: 40,
-                      Fast: 80,
+                      Normal: 30,
+                      Fast: 40,
                     };
                     const isSelected = bpm === bpmMap[label];
                     return (
@@ -145,7 +145,7 @@ const Home = () => {
             </div>
 
             <div className="px-4">
-              <h1 className="text-4xl mt-10 mb-8 font-bold text-white">
+              <h1 className="text-4xl mt-5 mb-8 font-bold text-white">
                 {chords.title}
               </h1>
 
@@ -183,7 +183,7 @@ const Home = () => {
 
               <div
                 className={`
-                absolute bottom-20 left-0 right-0 flex justify-center items-center
+                absolute bottom-5 left-0 right-0 flex justify-center items-center
                 mx-auto max-w-[400px] rounded-3xl bg-white bg-opacity-40 backdrop-blur-lg
                 transition-transform duration-300
                 ${isFocused ? "z-50 scale-125" : "z-10 scale-100"}

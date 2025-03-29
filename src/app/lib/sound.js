@@ -7,7 +7,7 @@ export const initPiano = async () => {
     if (piano) return piano;
 
     audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
-    piano = await Soundfont.instrument(audioCtx, 'acoustic_grand_piano');
+    piano = await Soundfont.instrument(audioCtx, 'bright_acoustic_piano');
 
     return piano;
 };
