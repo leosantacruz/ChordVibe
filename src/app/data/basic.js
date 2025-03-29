@@ -126,41 +126,38 @@ export const list = [{
     "thumbnail": "2.webp",
     "progression": [
         {
-            "name": "Dm",
-            "notes": ["D3", "F3", "A3"]
+            "name": "Dm(add9)",
+            "notes": ["D2", "F2", "A2", "E3"]
         },
         {
-            "name": "Am(add9)",
-            "notes": ["A2", "C3", "E3", "B3"]
+            "name": "Fmaj7",
+            "notes": ["F2", "A2", "C3", "E3"]
+        },
+        {
+            "name": "Gm(add9)",
+            "notes": ["G2", "Bb2", "D3", "A3"]
         },
         {
             "name": "Bbmaj7",
             "notes": ["Bb2", "D3", "F3", "A3"]
         },
         {
-            "name": "Gm9",
-            "notes": ["G2", "Bb2", "D3", "F3", "A3"]
-        },
-        {
-            "name": "Em7b5",
-            "notes": ["E2", "G2", "Bb2", "D3"]
+            "name": "A7sus4",
+            "notes": ["A2", "D3", "E3", "G3"]
         },
         {
             "name": "A7",
             "notes": ["A2", "C#3", "E3", "G3"]
         },
         {
-            "name": "Dm(add11)",
-            "notes": ["D2", "F2", "G2", "A2", "C3"]
-        },
-        {
-            "name": "C(add9)",
-            "notes": ["C3", "E3", "G3", "D4"]
+            "name": "Dm(add9)",
+            "notes": ["D2", "F2", "A2", "E3"]
         }
     ],
-    "description": "Wrap yourself in the warmth of memories with this nostalgic progression. Perfect for those chill moments when you're feeling a bit reflective. Get lost in the mist of sound.",
-    "scale": ["D", "E", "F", "G", "A", "Bb", "C", "C#", "B"]
-},
+    "description": "Dive into a lush realm of minor tonality with this mystical chord progression. Subtle tensions and gentle resolutions evoke a reflective, otherworldly warmth perfect for a nostalgic piano piece.",
+    "scale": ["D", "E", "F", "G", "A", "Bb", "C", "C#"]
+}
+    ,
 {
     "title": "Cosmic Lounge",
     "thumbnail": "3.webp",

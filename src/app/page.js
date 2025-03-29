@@ -34,7 +34,7 @@ const Home = () => {
   const [showBackground, setShowBackground] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [bpm, setBpm] = useState(120);
+  const [bpm, setBpm] = useState(40);
   const [isMuted, setIsMuted] = useState(false);
 
   const next = () =>
@@ -104,14 +104,14 @@ const Home = () => {
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6 pt-20">
                 <button
                   onClick={() => setIsMuted((prev) => !prev)}
-                  className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full shadow hover:bg-gray-100 transition h-8"
+                  className="flex items-center gap-2 px-4 py-2 bg-white backdrop-blur-sm bg-opacity-20 text-white rounded-full shadow transition h-8"
                 >
                   {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
                 </button>
 
                 <button
                   onClick={() => setIsPlaying((prev) => !prev)}
-                  className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full shadow hover:bg-gray-100 transition h-8"
+                  className="flex items-center gap-2 px-4 py-2 bg-white backdrop-blur-sm bg-opacity-20 text-white rounded-full shadow transition h-8"
                 >
                   {isPlaying ? <Pause size={20} /> : <Play size={20} />}
                   {isPlaying ? "Pause" : "Play"}
@@ -129,10 +129,10 @@ const Home = () => {
                       <button
                         key={label}
                         onClick={() => setBpm(bpmMap[label])}
-                        className={`px-3 py-1 h-8 rounded-full text-sm font-medium border transition
+                        className={`px-3 py-1 h-8 rounded-full text-sm font-medium
                           ${isSelected
-                            ? "bg-blue-600 text-white border-blue-500"
-                            : "bg-white backdrop-blur-sm bg-opacity-20 text-white border-gray-300 hover:bg-gray-100"
+                            ? "bg-blue-600 text-white border border-blue-500"
+                            : "bg-white backdrop-blur-sm bg-opacity-20 text-white "
                           }`}
                       >
                         {label}
